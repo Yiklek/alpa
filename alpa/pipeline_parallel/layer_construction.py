@@ -454,6 +454,7 @@ def layer_level_jaxpr_transformation(fn: Callable,
                 log_layer_slicing_stats(jaxpr, sliced_eqns)
         else:
             sliced_eqns = slice_eqns_by_layer_boundary(jaxpr)
+        log_layer_slicing_stats(jaxpr, sliced_eqns)
 
         if remat:
             sliced_eqns = remat_sliced_eqns(jaxpr, sliced_eqns)
