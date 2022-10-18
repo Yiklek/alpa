@@ -64,6 +64,9 @@ class GlobalConfig:
         # "xla_extension"}
         self.nccl_mode = "xla_extension"
         self.enable_overlapping = True
+        # TODO: move it to the pipeshard parallel method
+        self.cross_mesh_bandwidth = 10 * 2**30 / 4
+        self.device_tflops = 15.7 * 2**40
 
         ########## Options of XLA compilation ##########
         # Whether to use xla while instruction for preventing CSE in
