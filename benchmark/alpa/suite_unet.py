@@ -80,12 +80,33 @@ perf_test_2d_suite = {}
 
 # Performance test with search solutions found for p3.16xlarge
 perf_test_auto_suite = {
-    2: get_solution_case("470M", 256, 4, [list(range(7)), list(range(7, 13))], [(1, 1)] * 2, [(1, 1)] * 2,
-                          [{}] * 2),
-    4: get_solution_case("1B", 2048, 32, [list(range(8)), list(range(8, 13))], [(1, 2)] * 2, [(1, 2)] * 2,
-                          [{}] * 2),
-    8: get_solution_case("2B", 2048, 32, [list(range(8)), list(range(8, 13))], [(1, 4)] * 2, [(1, 4)] * 2,
-                          [{}] * 2),
+    2:
+        get_solution_case("470M", 256, 4,
+                          [list(range(7)), list(range(7, 13))], [(1, 1)] * 2,
+                          [(1, 1)] * 2, [{}] * 2) +
+        get_solution_case("470M", 2048, 32,
+                          [list(range(7)), list(range(7, 13))], [(1, 1)] * 2,
+                          [(1, 1)] * 2, [{}] * 2) +
+        get_solution_case("470M", 2048, 32,
+                          [list(range(8)), list(range(8, 13))], [(1, 1)] * 2,
+                          [(1, 1)] * 2, [{}] * 2),
+    4:
+        get_solution_case("1B", 2048, 32,
+                          [list(range(8)), list(range(8, 13))], [(1, 2)] * 2,
+                          [(1, 2)] * 2, [{}] * 2),
+    8:
+        # get_solution_case("2B", 80 * 4, 4,
+        #                   [list(range(8)), list(range(8, 13))], [(1, 4)] * 2,
+        #                   [(1, 4)] * 2, [{}] * 2) +
+        # get_solution_case("2B", 80 * 4, 4,
+        #                   [list(range(7)), list(range(7, 13))], [(1, 4)] * 2,
+        #                   [(1, 4)] * 2, [{}] * 2),
+        get_solution_case("2B", 80 * 32, 32,
+                          [list(range(8)), list(range(8, 13))], [(1, 4)] * 2,
+                          [(1, 4)] * 2, [{}] * 2) +
+        get_solution_case("2B", 80 * 32, 32,
+                          [list(range(7)), list(range(7, 13))], [(1, 4)] * 2,
+                          [(1, 4)] * 2, [{}] * 2),
 }
 
 # Grid search on hyperparameters
